@@ -3,5 +3,7 @@ class List < ApplicationRecord
   
   validates :title, presence: true
   validates :body, presence: true
+  
+  #コメントアウト
   validates :image, presence: true
 end

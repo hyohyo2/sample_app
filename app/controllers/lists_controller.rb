@@ -3,15 +3,13 @@ class ListsController < ApplicationController
     # Viewへ渡すためのインスタンス変数に空のModelオブジェクトを生成する。
     @list = List.new
   end
+
   def create
-    # 1.&2. データを受け取り新規登録するためのインスタンス作成
     @list = List.new(list_params)
-    # 3.　データをデータベースに保存するためのsaveメソッド実行
    if @list.save
-    # 4. トップ画面へリダイレクト
     redirect_to list_path(@list.id)
    else
-    render :new
+    render :index  #<=newからindexに変更
    end
 
   end
@@ -34,7 +32,7 @@ class ListsController < ApplicationController
     redirect_to list_path(list.id)
 
   end
-  
+
   def destroy
     list = List.find(params[:id])
     list.destroy
