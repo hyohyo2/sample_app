@@ -12,7 +12,7 @@ class ListsController < ApplicationController
     else
       flash.now[:alert] = "投稿に失敗しました。" #キーをalertに変更
       render :new
-   end
+    end
   end
 
   def index
